@@ -4,8 +4,40 @@
 header.header {
   order: 1;
   -webkit-order: 1;
-  position: relative;
+  position: static;
+  padding: 25px 0 0;
   min-width: 320px;
   width: 100%;
   z-index: 100;
 }
+
+.header-content {
+  text-align: center;
+
+  .logo {
+    img {
+      max-width: 85px;
+    }
+  }
+}
+
+@include media-breakpoint-up(sm) {}
+@include media-breakpoint-up(md) {}
+@include media-breakpoint-up(lg) {
+  header.header {
+    position: absolute;
+    top: 25px;
+    padding: 0;
+  }
+
+  .header-content {
+    text-align: left;
+
+    .logo {
+      img {
+        max-width: none;
+      }
+    }
+  }
+}
+@include media-breakpoint-up(xl) {}

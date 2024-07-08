@@ -1,7 +1,7 @@
 :root {
   --white: #ffffff;
   --black: #000000;
-  --first-color: #7a0000;
+  --first-color: #6B0425;
   --second-color: #007d00;
   --third-color: #000082;
 }
@@ -12,9 +12,9 @@ $main-second-color: var(--second-color);
 $main-third-color: var(--third-color);
 
 // colors
-$title-color: var(--black);
-$text-color: var(--black);
-$link-color: var(--black);
+$title-color: var(--white);
+$text-color: var(--white);
+$link-color: var(--white);
 $link-hover-color: var(--third-color);
 $input-placeholder-color: #aaa;
 
@@ -23,7 +23,7 @@ $selection-text-color: var(--white);
 $selection-bg-color: var(--black);
 
 // fonts
-$font-family-base: 'Arial', sans-serif;
+$font-family-base: 'Montserrat', sans-serif;
 $font-family-custom: 'Verdana', sans-serif;
 $font-family-unique: 'Times New Roman', serif;
 
@@ -40,4 +40,23 @@ $transition-base: all .35s ease-in-out 0s;
 
 //Bootstrap var
 $enable-shadows: true;
-$body-color: var(--black);
+$body-color: $text-color;
+$grid-gutter-width: 40px;
+
+$grid-breakpoints: (
+        xs: 0,
+        sm: 640px,
+        md: 768px,
+        lg: 1025px,
+        xl: 1540px,
+);
+
+$container-max-widths: ();
+
+$firstIteration: true;
+@each $breakpoint, $value in $grid-breakpoints {
+  @if not $firstIteration {
+    $container-max-widths: map-merge($container-max-widths, ($breakpoint: $value - $grid-gutter-width));
+  }
+  $firstIteration: false;
+}

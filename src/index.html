@@ -9,80 +9,240 @@
 <body>
 <!-- BODY -->
 <div class="main-wrapper">
+    <div class="section-bg">
+        <picture>
+            <source media="(min-width: 1025px)" srcset="<%= require('./img/bg-page_horizontal.png') %>">
+            <img src="<%= require('./img/bg-page_vertical.png') %>" class="section-bg__img" alt="" title="">
+        </picture>
+    </div>
+
     <!-- HEADER -->
     <header class="header">
-        <div class="container">
-            <h1>Header Title</h1>
+        <div class="container-fluid">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <picture>
+                        <img src="<%= require('./img/logo.svg') %>" alt="" title="">
+                    </picture>
+                </a>
+            </div>
         </div>
     </header>
     <!-- HEADER END -->
 
     <!-- CONTENT -->
     <main class="content">
-        <section class="section">
-            <div class="container">
-                <div class="registration">
-                    <div class="registration__offer">
-                        <p class="registration__offer-text">Congrats!</p>
-                        <p class="registration__offer-text">You won Welcome Bonus</p>
-                        <p class="registration__offer-title">1500 <span>$ +</span> 150 <span>fs</span></p>
+        <section class="section section-wheel">
+            <div class="container-fluid">
+                <picture class="section-wheel__decorator decor-1">
+                    <img src="<%= require('./img/airplane.png') %>" alt="" title="">
+                </picture>
+                <picture class="section-wheel__decorator decor-2">
+                    <img src="<%= require('./img/pilot.png') %>" alt="" title="">
+                </picture>
+
+                <div class="section-wheel__head">
+                    <p class="section-wheel__sup-title">EXCLUSIVE</p>
+                    <p class="section-wheel__title">FLY FORTUNE!</p>
+                </div>
+                <div class="section-wheel__body">
+                    <div class="section-wheel__wheel">
+                        <picture class="section-wheel__wheel-background">
+                            <img src="<%= require('./img/mandala.png') %>" alt="" title="">
+                        </picture>
+                        <picture class="section-wheel__wheel-circle">
+                            <img src="<%= require('./img/wheel_spinner.png') %>" alt="" title="">
+                        </picture>
+                        <picture class="section-wheel__wheel-pointer">
+                            <img src="<%= require('./img/wheel_pointer.png') %>" alt="" title="">
+                        </picture>
+                        <button type="button" id="button" class="section-wheel__wheel-button">
+                            <img src="<%= require('./img/wheel_button.png') %>" alt="" title="">
+                            <span>Spin</span>
+                        </button>
                     </div>
-
-                    <form method="post" action="" class="registration__form">
-                        <p class="registration__title">Registration</p>
-
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <label class="form-group">
-                                    <input type="text" class="form-control" placeholder="First name">
-                                </label>
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="form-group">
-                                    <input type="text" class="form-control" placeholder="Last name">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="col-12">
-                                <label class="form-group">
-                                    <input type="email" class="form-control" placeholder="Email">
-                                </label>
-                            </div>
-                        </div>
-
-                        <p class="registration__form-separate">or</p>
-
-                        <div class="form-row">
-                            <div class="col-12">
-                                <label class="form-group">
-                                    <input type="tel" class="form-control" placeholder="Phone">
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="col-sm-6">
-                                <label class="form-group">
-                                    <button type="button" class="form-button-pass"><svg><use xlink:href="img/spritemap.svg#sprite-pass-visible"></use></svg></button>
-                                    <input type="password" class="form-control" placeholder="Password">
-                                </label>
-                            </div>
-                            <div class="col-sm-6">
-                                <button type="submit" class="btn btn-primary w-100">Register & Get Bonus</button>
-                            </div>
-                        </div>
-                    </form>
-
-                    <p class="registration__text">By clicking this button you confirm that you have read and agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy
-                        Policy</a> of the company and confirm that you are of legal age</p>
+                </div>
+                <div class="section-wheel__footer">
+                    <p class="section-wheel__footer-title">Attempts left</p>
+                    <p class="section-wheel__counter" data-counter="2"><!--pseudo element counter--> / 2</p>
                 </div>
             </div>
         </section>
     </main>
     <!-- CONTENT END -->
 </div>
+
+<!-- Модальное окно -->
+<div class="modal fade" id="firstTry" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+
+            <div class="modal-try">
+                <p class="modal-try__counter">Attempt <span>1</span></p>
+
+                <picture class="modal-try__decor">
+                    <img src="<%= require('./img/modal-decor.png') %>" alt="" title="">
+                </picture>
+
+                <p class="modal-try__title">CONGRATS!</p>
+
+                <div class="modal-try__congrats">
+                    <p class="modal-try__congrats-title">YOU WON</p>
+                    <p class="modal-try__congrats-prize">5 FREE BETS</p>
+                    <p class="modal-try__congrats-text">on sign up</p>
+                </div>
+
+                <button type="button" id="nexTry" class="modal-try__button">SPIN MORE</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="secondTry" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+
+            <div class="modal-try">
+                <p class="modal-try__counter">Attempt <span>2</span></p>
+
+                <picture class="modal-try__decor">
+                    <img src="<%= require('./img/modal-decor.png') %>" alt="" title="">
+                </picture>
+
+                <p class="modal-try__title">CONGRATS!</p>
+
+                <div class="modal-try__congrats">
+                    <p class="modal-try__congrats-title">YOU WON</p>
+                    <p class="modal-try__congrats-prize">100% BONUS</p>
+                    <p class="modal-try__congrats-text">on first deposit</p>
+                </div>
+
+                <button type="button" id="finalStep" class="modal-try__button">CATCH</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registration" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>-->
+
+            <div class="registration">
+                <p class="registration__offer">You won 100% on first deposit + 5 FREE BETS on Sign up</p>
+
+                <form method="post" action="" class="registration__form">
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <select class="select2 js-example-placeholder-single" data-placeholder="Select country" style="width: 100%;">
+                                    <option></option>
+                                    <option value="01">India</option>
+                                    <option value="02">India 2</option>
+                                    <option value="03">India 3</option>
+                                    <option value="04">India 4</option>
+                                    <option value="05">India 5</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <select class="select2 js-example-placeholder-single" data-placeholder="Select city" style="width: 100%;">
+                                    <option></option>
+                                    <option value="01">City 1</option>
+                                    <option value="02">City 2</option>
+                                    <option value="03">City 3</option>
+                                    <option value="04">City 4</option>
+                                    <option value="05">City 5</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-12">
+                            <label class="form-group">
+                                <select class="select2 js-example-placeholder-single" data-placeholder="Select currency" style="width: 100%;">
+                                    <option></option>
+                                    <option value="01">EUR (Euro)</option>
+                                    <option value="02">USD (Dollar)</option>
+                                    <option value="03">GBP (Pound Sterling)</option>
+                                    <option value="04">INR (Indian Rupee)</option>
+                                    <option value="05">CNY (Yuan)</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="email" class="form-control" placeholder="Email">
+                            </label>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="tel" class="form-control" placeholder="Phone">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="text" class="form-control" placeholder="First name">
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="text" class="form-control" placeholder="Surname">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <button type="button" class="form-button-pass">
+                                    <svg>
+                                        <use xlink:href="img/spritemap.svg#sprite-pass-visible"></use>
+                                    </svg>
+                                </button>
+                                <input type="password" class="form-control" placeholder="Password">
+                            </label>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="password" class="form-control" placeholder="Password">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="col-sm-6">
+                            <label class="form-group">
+                                <input type="text" class="form-control" placeholder="Promocode">
+                            </label>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
+                        </div>
+                    </div>
+                </form>
+
+                <p class="registration__text">By clicking this button you confirm that you have read and agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy
+                    Policy</a> of the company and confirm that you are of legal age</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- BODY END   -->
 </body>
 </html>
