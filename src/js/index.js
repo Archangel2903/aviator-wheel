@@ -15,56 +15,64 @@ $(window).on('load', function () {
 });
 
 $(function () {
-    // wheel&modals
-    const wheel = $('.section-wheel__wheel-circle img');
-    const btnSpin = $('#button');
-    const first_modal = $('#firstTry');
-    const next_try = $('#nexTry');
-    const second_modal = $('#secondTry');
-    const to_registration = $('#finalStep');
-    const registration_modal = $('#registration');
-    const counter = $('.section-wheel__counter');
+    // Elements
+    const $wheel = $('.section-wheel__wheel-circle img');
+    const $btnSpin = $('#button');
+    const $firstModal = $('#firstTry');
+    const $nextTry = $('#nexTry');
+    const $secondModal = $('#secondTry');
+    const $toRegistration = $('#finalStep');
+    const $registrationModal = $('#registration');
+    const $counter = $('.section-wheel__counter');
 
-    function counterData(el) {
-        let currentVal = $(el).attr('data-counter');
-
-        $(el).attr('data-counter', currentVal - 1);
+    // Function to update counter
+    function updateCounter($el) {
+        let currentVal = Number($el.attr('data-counter'));
+        if (currentVal > 0) {
+            $el.attr('data-counter', currentVal - 1);
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    btnSpin.on('click', function () {
-        if (!wheel.hasClass('step-2')) {
-            wheel.addClass('step-1');
-            counterData(counter);
-
-            setTimeout(function () {
-                first_modal.modal({
-                    backdrop: 'static',
-                    show: true,
-                });
-            }, 3000);
-        }
-        else {
-            registrationModal.modal('show');
-        }
-    });
-    next_try.on('click', function () {
-        first_modal.modal('hide');
-        wheel.toggleClass('step-1 step-2');
-        counterData(counter);
-
-        setTimeout(function () {
-            second_modal.modal({
+    // Function to show modal with a delay
+    function showModal($modal, delay = 3000) {
+        setTimeout(function() {
+            $modal.modal({
                 backdrop: 'static',
                 show: true,
             });
+        }, delay);
+    }
+
+    // Event handlers
+    $btnSpin.on('click', function() {
+        if ($btnSpin.attr('disabled')) return;
+
+        $btnSpin.attr('disabled', true);
+
+        if (!$wheel.hasClass('step-2') && updateCounter($counter)) {
+            $wheel.addClass('step-1');
+            showModal($firstModal);
+        }
+
+        setTimeout(() => {
+            $btnSpin.attr('disabled', false);
         }, 3000);
     });
-    to_registration.on('click', function () {
-        second_modal.modal('hide');
-        registration_modal.modal({
-            backdrop: 'static',
-            show: true,
-        });
+
+    $nextTry.on('click', function() {
+        $firstModal.modal('hide');
+        $wheel.toggleClass('step-1 step-2');
+        if (updateCounter($counter)) {
+            showModal($secondModal);
+        }
+    });
+
+    $toRegistration.on('click', function() {
+        $secondModal.modal('hide');
+        showModal($registrationModal, 0); // No delay for final registration modal
     });
 
     // Select2
