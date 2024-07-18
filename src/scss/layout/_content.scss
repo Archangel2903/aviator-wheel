@@ -18,7 +18,7 @@
 
   &__decorator {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
 
     &.decor-1 {
       bottom: 70px;
@@ -91,7 +91,12 @@
     }
 
     &-circle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
       width: 100%;
+      padding: 25px;
+      transform: translate(-50%, -50%);
       z-index: -1;
 
       img {
@@ -99,23 +104,20 @@
         transition: all 2.5s ease-in-out 0s;
 
         &.step-1 {
-          transform: rotate(-2.28turn);
+          transform: rotate(2.28turn);
         }
 
         &.step-2 {
-          transform: rotate(-5turn);
+          transform: rotate(5turn);
         }
       }
     }
 
     &-border {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-
+      width: 100%;
       img {
+        width: 100%;
+        height: 100%;
       }
     }
 
@@ -136,9 +138,7 @@
       outline: none !important;
       overflow: hidden;
       max-width: 296px;
-      width: 100%;
       max-height: 296px;
-      height: 100%;
       padding: 0;
       position: absolute;
       top: 50%;
@@ -345,6 +345,10 @@
         }
       }
 
+      &-circle {
+        padding: 45px;
+      }
+
       &-pointer {
         top: -10px;
 
@@ -452,6 +456,10 @@
           max-width: 960px;
           max-height: 960px;
         }
+      }
+
+      &-circle {
+        padding: 30px;
       }
 
       &-button {
@@ -681,6 +689,10 @@
         img {
           max-width: none;
         }
+      }
+
+      &-circle {
+        padding: 50px;
       }
 
       &-button {

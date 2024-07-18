@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, maximum-scale=1, shrink-to-fit=no">
     <title>Главная</title>
-<link rel="shortcut icon" href="favicon.ico"><link href="style.cef032326935b7264310.min.css" rel="stylesheet"></head>
+<link rel="shortcut icon" href="favicon.ico"><link href="style.8084fe9311714f9ea483.min.css" rel="stylesheet"></head>
 <body>
 <!-- BODY -->
 <div class="main-wrapper">
@@ -35,10 +35,12 @@
         <section class="section section-wheel">
             <div class="container-fluid">
                 <picture class="section-wheel__decorator decor-1">
-                    <img src="img/airplane.png" alt="" title="">
+                    <source media="(min-width: 1025px)" srcset="img/airplane.png">
+                    <img src="img/airplane_mob.png" alt="" title="">
                 </picture>
                 <picture class="section-wheel__decorator decor-2">
-                    <img src="img/pilot.png" alt="" title="">
+                    <source media="(min-width: 1025px)" srcset="img/pilot.png">
+                    <img src="img/pilot_mob.png" alt="" title="">
                 </picture>
 
                 <div class="section-wheel__head">
@@ -50,14 +52,23 @@
                         <picture class="section-wheel__wheel-background">
                             <img src="img/mandala.png" alt="" title="">
                         </picture>
+                        <picture class="section-wheel__wheel-border">
+                            <source media="(min-width: 1025px)" srcset="img/wheel_border.png">
+                            <img src="img/wheel_border_mob.png" alt="" title="">
+                        </picture>
                         <picture class="section-wheel__wheel-circle">
-                            <img src="img/wheel_spinner.png" alt="" title="">
+                            <source media="(min-width: 1025px)" srcset="img/wheel_spinner.png">
+                            <img src="img/wheel_spinner_mob.png" alt="" title="">
                         </picture>
                         <picture class="section-wheel__wheel-pointer">
-                            <img src="img/wheel_pointer.png" alt="" title="">
+                            <source media="(min-width: 1025px)" srcset="img/wheel_pointer.png">
+                            <img src="img/wheel_pointer_mob.png" alt="" title="">
                         </picture>
                         <button type="button" id="button" class="section-wheel__wheel-button">
-                            <img src="img/wheel_button.png" alt="" title="">
+                            <picture>
+                                <source media="(min-width: 1025px)" srcset="img/wheel_button.png">
+                                <img src="img/wheel_button_mob.png" alt="" title="">
+                            </picture>
                             <span>Spin</span>
                         </button>
                     </div>
@@ -244,5 +255,5 @@
 </div>
 
 <!-- BODY END   -->
-<script type="text/javascript" src="bundle.cef032326935b7264310.min.js"></script></body>
+<script type="text/javascript" src="bundle.8084fe9311714f9ea483.min.js"></script></body>
 </html>

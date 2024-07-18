@@ -35,10 +35,12 @@
         <section class="section section-wheel">
             <div class="container-fluid">
                 <picture class="section-wheel__decorator decor-1">
-                    <img src="<%= require('./img/airplane.png') %>" alt="" title="">
+                    <source media="(min-width: 1025px)" srcset="<%= require('./img/airplane.png') %>">
+                    <img src="<%= require('./img/airplane_mob.png') %>" alt="" title="">
                 </picture>
                 <picture class="section-wheel__decorator decor-2">
-                    <img src="<%= require('./img/pilot.png') %>" alt="" title="">
+                    <source media="(min-width: 1025px)" srcset="<%= require('./img/pilot.png') %>">
+                    <img src="<%= require('./img/pilot_mob.png') %>" alt="" title="">
                 </picture>
 
                 <div class="section-wheel__head">
@@ -50,14 +52,23 @@
                         <picture class="section-wheel__wheel-background">
                             <img src="<%= require('./img/mandala.png') %>" alt="" title="">
                         </picture>
+                        <picture class="section-wheel__wheel-border">
+                            <source media="(min-width: 1025px)" srcset="<%= require('./img/wheel_border.png') %>">
+                            <img src="<%= require('./img/wheel_border_mob.png') %>" alt="" title="">
+                        </picture>
                         <picture class="section-wheel__wheel-circle">
-                            <img src="<%= require('./img/wheel_spinner.png') %>" alt="" title="">
+                            <source media="(min-width: 1025px)" srcset="<%= require('./img/wheel_spinner.png') %>">
+                            <img src="<%= require('./img/wheel_spinner_mob.png') %>" alt="" title="">
                         </picture>
                         <picture class="section-wheel__wheel-pointer">
-                            <img src="<%= require('./img/wheel_pointer.png') %>" alt="" title="">
+                            <source media="(min-width: 1025px)" srcset="<%= require('./img/wheel_pointer.png') %>">
+                            <img src="<%= require('./img/wheel_pointer_mob.png') %>" alt="" title="">
                         </picture>
                         <button type="button" id="button" class="section-wheel__wheel-button">
-                            <img src="<%= require('./img/wheel_button.png') %>" alt="" title="">
+                            <picture>
+                                <source media="(min-width: 1025px)" srcset="<%= require('./img/wheel_button.png') %>">
+                                <img src="<%= require('./img/wheel_button_mob.png') %>" alt="" title="">
+                            </picture>
                             <span>Spin</span>
                         </button>
                     </div>
