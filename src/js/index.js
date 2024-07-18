@@ -41,7 +41,7 @@ $(function () {
                     backdrop: 'static',
                     show: true,
                 });
-            }, 4000);
+            }, 3000);
         }
         else {
             registrationModal.modal('show');
@@ -57,7 +57,7 @@ $(function () {
                 backdrop: 'static',
                 show: true,
             });
-        }, 4000);
+        }, 3000);
     });
     to_registration.on('click', function () {
         second_modal.modal('hide');

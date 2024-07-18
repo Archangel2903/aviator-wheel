@@ -225,6 +225,7 @@ form {
 
 .modal {
   backdrop-filter: blur(266px);
+  -webkit-backdrop-filter: blur(266px);
   overflow-x: hidden;
   overflow-y: auto;
 
