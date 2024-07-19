@@ -226,6 +226,7 @@ form {
 .modal {
   backdrop-filter: blur(266px);
   -webkit-backdrop-filter: blur(266px);
+  background: url('../img/modal-decor.gif') repeat-x top center;
   overflow-x: hidden;
   overflow-y: auto;
 

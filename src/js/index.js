@@ -3,6 +3,7 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'popper.js';
 import select2 from 'select2/dist/js/select2.full.min';
+import '../img/modal-decor.gif';
 
 $(window).on('load', function () {
     let b = $('body');
