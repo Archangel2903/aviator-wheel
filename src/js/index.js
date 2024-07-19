@@ -18,12 +18,17 @@ $(window).on('load', function () {
 $(function () {
     // Elements
     const $wheel = $('.section-wheel__wheel-circle img');
+
     const $btnSpin = $('#button');
+
     const $firstModal = $('#firstTry');
     const $nextTry = $('#nexTry');
+
     const $secondModal = $('#secondTry');
     const $toRegistration = $('#finalStep');
+
     const $registrationModal = $('#registration');
+
     const $counter = $('.section-wheel__counter');
 
     // Function to update counter
@@ -32,8 +37,6 @@ $(function () {
         if (currentVal > 0) {
             $el.attr('data-counter', currentVal - 1);
             return true;
-        } else {
-            return false;
         }
     }
 
@@ -49,13 +52,20 @@ $(function () {
 
     // Event handlers
     $btnSpin.on('click', function() {
-        if ($btnSpin.attr('disabled')) return;
-
         $btnSpin.attr('disabled', true);
 
-        if (!$wheel.hasClass('step-2') && updateCounter($counter)) {
+        if (!$wheel.hasClass('step-1') && !$wheel.hasClass('step-2')) {
             $wheel.addClass('step-1');
+            updateCounter($counter);
             showModal($firstModal);
+        }
+        else if ($wheel.hasClass('step-1')) {
+            $wheel.toggleClass('step-1 step-2');
+            updateCounter($counter);
+            showModal($secondModal);
+        }
+        else {
+            showModal($registrationModal, 0);
         }
 
         setTimeout(() => {
@@ -64,16 +74,25 @@ $(function () {
     });
 
     $nextTry.on('click', function() {
-        $firstModal.modal('hide');
-        $wheel.toggleClass('step-1 step-2');
-        if (updateCounter($counter)) {
+        $btnSpin.attr('disabled', true);
+
+        if ($wheel.hasClass('step-1')) {
+            $firstModal.modal('hide');
+            $wheel.toggleClass('step-1 step-2');
+            updateCounter($counter);
             showModal($secondModal);
         }
+
+        setTimeout(() => {
+            $btnSpin.attr('disabled', false);
+        }, 3000);
     });
 
     $toRegistration.on('click', function() {
-        $secondModal.modal('hide');
-        showModal($registrationModal, 0); // No delay for final registration modal
+        if ($wheel.hasClass('step-2')) {
+            $secondModal.modal('hide');
+            showModal($registrationModal, 0);
+        }
     });
 
     // Select2
